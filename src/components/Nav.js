@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import{NavLink} from "react-router-dom";
-import { cgMenu,cgClose } from "react-icons/cg";
+import { CgMenu, CgClose } from 'react-icons/cg';
 
 const Nav = () => {
     const [menuIcon, setMenuIcon] = useState();
@@ -32,11 +32,10 @@ const Nav = () => {
         </ul>
 
         <div className='mobile-navbar-btn'>
-            <cgMenu name="menu-outline" className="mobile-nav-icon"  
+            <CgMenu name="menu-outline" className="mobile-nav-icon"  
                onClick ={ ()=>setMenuIcon(true)}  />
-          <cgClose name="close-outline" className="mobile-nav-icon close outline"
-                onClick ={ ()=>setMenuIcon(false)}
-          />
+          <CgClose name="close-outline" className="mobile-nav-icon close outline"
+                onClick ={ ()=>setMenuIcon(false)}  />
         </div>
 
     </div>
