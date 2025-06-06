@@ -1,17 +1,37 @@
 import React from 'react'
 import{NavLink} from "react-router-dom";
 import Nav from './Nav';
+import styled from 'styled-components';
+
+
+ const MainHeader = styled.header`
+ padding: 0 4.8rem;
+ height: 10rem;
+ background-color: ${({theme})=> theme.colors.bg};
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ position: relative;
+
+ .logo {
+  height: 4rem;
+}
+  `;
+
 
 const Header = () => {
   return (
- <section>
+ <MainHeader>
     <NavLink to="/">
-    <img src='./rahul-enterprises.jpg' alt='my logo img'/>
+    <img src='./rahul-enterprises.jpg' alt='my logo img' className='logo'/>
 
     </NavLink>
 <Nav />
- </section>
-  )
-}
+ </MainHeader>
+  );
+};
 
-export default Header
+
+
+
+export default Header;
