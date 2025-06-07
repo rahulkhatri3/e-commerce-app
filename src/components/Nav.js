@@ -12,7 +12,7 @@ import { FiShoppingCart } from "react-icons/fi";
     align-items: center;
 
 
-    .navbar-link{
+    .navbar-link {
     &:link,
     &:visited{
     display: inline-block;
@@ -26,9 +26,11 @@ import { FiShoppingCart } from "react-icons/fi";
     &:hover,
     &:active{
     color: ${({theme})=> theme.colors.helper};
+  
       }
      }
     }
+
 
     .mobile-navbar-btn{
     display: none;
@@ -100,6 +102,7 @@ top: 0;
 left:0;
 background-color: #fff;
 
+
 display: flex;
 justify-content: center;
 align-items: center;
@@ -117,6 +120,7 @@ transform: translateX(0);
 z-index: 999;
 // transform-origin: right;
 transition: all 0.3s linear;
+
 
 .navbar-link{
 font-size: 4.2rem

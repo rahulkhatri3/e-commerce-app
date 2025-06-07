@@ -49,8 +49,8 @@ h4 {
 
 h1 {
   color: ${({ theme }) => theme.colors.heading};
-  font-size: 6rem;
-  font-weight: 900;
+  font-size: 4rem;
+  font-weight: 800;
 }
 
  h2 {
@@ -96,7 +96,6 @@ ${"" /* resuable code section  */}
 
 .grid-two-column {
   grid-template-columns: repeat(2, 1fr);
-
 }
 
 .grid-three-column {
