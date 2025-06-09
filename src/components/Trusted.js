@@ -61,12 +61,15 @@ img{
 min-width: 10rem;
 height: 10rem;
 }
-
 .brand-section-slider{
 margin-top: 3.2rem;
-display: flex;
-justify-content:space-between;
+
+
+}
+.slide{
+display:flex;
 align-items: center;
+justify-content:space-between;
 flex-direction: row;
 }
 
