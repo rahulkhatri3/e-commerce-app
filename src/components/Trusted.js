@@ -10,25 +10,20 @@ const Trusted =() => {
 
             <div className='brand-section-slider'>
             <div className='slide'>
-                <img src='https://raw.githubusercontent.com/solodev/infinite-logo-carousel/master/images/
-                image2.png' alt='trusted-brands' />
+                <img src='https://raw.githubusercontent.com/solodev/infinite-logo-carousel/master/images/image2.png' alt='trusted-brands' />
                 
   <div className='slide'>
-                <img src='https://raw.githubusercontent.com/solodev/infinite-logo-carousel/master/images/
-                image3.png' alt='trusted-brands' />
+                <img src='https://raw.githubusercontent.com/solodev/infinite-logo-carousel/master/images/image3.png' alt='trusted-brands' />
                 </div>
 
                   <div className='slide'>
-                <img src='https://raw.githubusercontent.com/solodev/infinite-logo-carousel/master/images/
-                image4.png' alt='trusted-brands' /></div>
+                <img src='https://raw.githubusercontent.com/solodev/infinite-logo-carousel/master/images/image4.png' alt='trusted-brands' /></div>
 
                   <div className='slide'>
-                <img src='https://raw.githubusercontent.com/solodev/infinite-logo-carousel/master/images/
-                image6.png ' alt='trusted-brands' /></div>
+                <img src='https://raw.githubusercontent.com/solodev/infinite-logo-carousel/master/images/image6.png ' alt='trusted-brands' /></div>
 
                   <div className='slide'>
-                <img src='https://raw.githubusercontent.com/solodev/infinite-logo-carousel/master/images/
-                image8.png' alt='trusted-brands' /></div>
+                <img src='https://raw.githubusercontent.com/solodev/infinite-logo-carousel/master/images/image8.png' alt='trusted-brands' /></div>
               
             </div>
 </div>
@@ -53,13 +48,13 @@ background-color: ${({theme})=> theme.colors.bg};
 padding: 12rem 0 0 0;
 }
 
-// h3{
-// text-align:center;
-// text-transform: capitalize;
-// color: ${({theme})=> theme.colors.text};
-// font-size: 2rem;
-// font-weight: bold;
-// }
+h3{
+text-align:center;
+text-transform: capitalize;
+color: ${({theme})=> theme.colors.text};
+font-size: 2rem;
+font-weight: bold;
+}
 
 
 img{

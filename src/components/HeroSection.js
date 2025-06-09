@@ -13,7 +13,7 @@ const HeroSection = ({ myData}) => {
     <div className='hero-section-data'>
     <p className='intro-data'>Welcome to</p>
     <h1>{name}</h1>
-    <p>Welcome to Rahul Store, where we bring you the best products at unbeatable prices. Whether you're shopping for everyday essentials,
+    <p> Welcome to Rahul Store, where we bring you the best products at unbeatable prices. Whether you're shopping for everyday essentials,
      trendy fashion, electronics, or home goods, our store is dedicated to delivering quality, affordability, and a great shopping experience.
       We believe in customer satisfaction, genuine products, and fast, friendly service.
       </p>
