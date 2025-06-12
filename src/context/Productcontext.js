@@ -1,4 +1,6 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect } from "react";
+import axios from "axios";
+
 
 
 // createContext
@@ -6,7 +8,21 @@ import { createContext, useContext } from "react";
 // consumer=>useContext Hook
 
 const AppContext = createContext();
+const API = "https://api.pujakaitem.com/api/products";
 const AppProvider =({children})=>{
+    const getProducts = async (url)=>{
+     const res = await axios.get(url);
+        const prod̥ucts = await res.data;
+        console.log("🚀 ~ getProducts ~ prod̥ucts:", prod̥ucts)
+    
+       
+    }
+
+
+
+    useEffect(()=>{
+        getProducts(API)
+    },[]);
     return (
 <AppContext.Provider value={{myName: "Rahul Khatri"}}>
     {children}
@@ -20,4 +36,5 @@ const AppProvider =({children})=>{
 const useProductContext =()=>{
     return useContext (AppContext);
 };
+
 export {AppProvider, AppContext,useProductContext} ;
