@@ -37,11 +37,11 @@ const Featureproduct = () => {
 
 const Wrapper= styled.section`
 padding: 9rem 0;
-backround-color: ${({theme})=> theme.colors.bg}
+background-color: ${({theme})=> theme.colors.bg};
 
 
 .container{
-max-width: 120rerm
+max-width: 120rem;
 }
 
 figure{
@@ -49,7 +49,7 @@ width:auto;
 display:flex;
 justify-content:center;
 align-items:center;
-prosition:relative;
+position:relative;
 overflow:hidden;
 transition:all 0.5s linear;
 &::after{
@@ -58,19 +58,19 @@ content: "";
 position:absolute;
 top:0;
 left:0;
-width:0;
+width:0%;
 height:100%;
 background-color:rgba(0,0,0,0.5);
 transition:all 0.2s linear;
 cursor:pointer;
 
 }
-&:hover after{
+&:hover::after{
 width:100%;
 }
 &:hover img {
-transform: scale(1.2)
-};
+transform: scale(1.2);
+}
 
 img{
 max-width:90%;
@@ -122,16 +122,17 @@ align-items:center;
 &:hover{
 background-color: rgb(98, 84, 243);
 }
-&:hover a {
-color: #fff;
+ a {
+color: #ffffff;
+}
 }
 a{
-color:rgb(98 84 243);
+color:rgb(98, 84, 243);
 font-size: 1.4rem;
 }
 }
 }
 
-`
+`;
 
 export default Featureproduct
