@@ -22,13 +22,15 @@ const productReducer = (state, action) => {
             return {
                 ...state,
                 isLoading: false,
+                isError:true,
             };
     
         default:
-            break;
+              return state;
+            
     }
     
-    return state;
+  
 
 }
 export default productReducer;
