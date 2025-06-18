@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { useProductContext } from "./Productcontext";
 import reducer from "../reducer/filterReducer";
-import { type } from "@testing-library/user-event/dist/type";
 
 const FilterContext =createContext();
 
@@ -10,6 +9,7 @@ const intialState = {
     all_products:[],
     grid_view: true,
     sorting_value:"lowest",
+    filters:{text:"",}
 }
 
 
@@ -27,13 +27,25 @@ return dispatch({type: "SET_GRID_VIEW"});
         return dispatch ({type:"SET_LIST_VIEW"});
     }
 
-    const sorting = ()=>{
-        dispatch({type: "GET_SORT_VALUE"})
+    const sorting = (event)=>{
+        let userValue = event.target.value;
+        dispatch({type: "GET_SORT_VALUE", payload:userValue})
+
 
     }
+const updateFilterValue =(event)=>{
+    let name = event.target.name;
+    let value = event.target.value;
+
+    return dispatch ({type: "UPDATE_FILTERS_VALUE",payload:{name,value}});
+
+
+}
+
     useEffect (()=>{
-        dispatch({type:"SORTING_PRODUCTS", payload:products})
-      },[state.sorting_value])
+        dispatch({type:"FILTER_PRODUCTS"})
+        dispatch({type:"SORTING_PRODUCTS"})
+      },[state.sorting_value,state.filters])
 
 
     useEffect (()=>{
@@ -42,7 +54,7 @@ return dispatch({type: "SET_GRID_VIEW"});
 
 
     return(
-        <FilterContext.Provider value={{...state, setGridView,setListView,sorting}}>
+        <FilterContext.Provider value={{...state, setGridView,setListView,sorting,updateFilterValue}}>
             {children}
 
 

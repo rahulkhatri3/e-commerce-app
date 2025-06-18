@@ -23,11 +23,11 @@ switch (action.type) {
         grid_view: false,
       };
         case "GET_SORT_VALUE":
-      let userSortValue = document.getElementById("sort");
-      let sort_value = userSortValue.options[userSortValue.selectedIndex].value;
+      // let userSortValue = document.getElementById("sort");
+      // let sort_value = userSortValue.options[userSortValue.selectedIndex].value;
       return {
         ...state,
-        sorting_value:sort_value,
+        sorting_value:action.payload,
       };
 
 
@@ -62,6 +62,33 @@ switch (action.type) {
         ...state,
         filter_products: newSortData,
       };
+
+      case "UPDATE_FILTERS_VALUE":
+      const {name,value} =action.payload;
+      return{
+        ... state,
+        filters:{
+          ...state.filters,[name]:value,
+        }
+
+      }
+
+      case "FILTER_PRODUCTS":
+        let {all_products}=state;
+        let tempFileterProduct =[...all_products];
+        const {text} = state.filters;
+        if(text){
+          tempFileterProduct=tempFileterProduct.filter((curElem)=>{
+
+            return curElem.name.toLowerCase().includes(text)
+          });
+        }
+        return{
+          ...state,
+           filter_products:tempFileterProduct,
+
+        }
+
 default:
     return state;
 }
