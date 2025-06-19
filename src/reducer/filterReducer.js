@@ -84,9 +84,9 @@ switch (action.type) {
           });
     }
     
-    if (category) {
+    if (category !== "all") {
       tempFileterProduct = tempFileterProduct.filter((curElem) => {
-        return curElem.category === category;
+        return curElem.category.toLowerCase() === category.toLowerCase()
         
 
       })
@@ -97,6 +97,15 @@ switch (action.type) {
            filter_products:tempFileterProduct,
 
         }
+        case "CLEAR_FILTER":
+          return{
+            ...state,
+             filters:{ ...state.filters,
+              text:"",
+                 category: "all",
+
+             },
+          }
 
 default:
     return state;

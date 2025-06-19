@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useFilterContext } from '../context/filter_Context'
+import {Button} from ".//Button"
 
 const FilterSection = () => {
-  const { filters: { text, category }, updateFilterValue, all_products } = useFilterContext();
+  const { filters: { text, category }, updateFilterValue, all_products,clearFilters } = useFilterContext();
 
   const getUniqeData = (data, property) => {
     
@@ -11,7 +12,7 @@ const FilterSection = () => {
   return curElem[property];
     })
 
-   return( newVal = ["ALL", ...new Set(newVal)]);
+   return( newVal = ["all", ...new Set(newVal)]);
    
   }
   
@@ -34,14 +35,19 @@ const FilterSection = () => {
           {categoryOnlyData.map((curElem,index) => {
   
             return (
-              <button key={index} type='button' name='category' value={curElem} onClick={updateFilterValue}>
+              <button key={index} type='button' name='category' value={curElem} className={curElem === category ? "active" : ""} onClick={updateFilterValue} >
                 {curElem}
               </button>
-            )
+            );
 })}
 
         </div>
 
+      </div>
+
+      <div className="filter-clear">
+
+        <Button className='btn' onClick={clearFilters}>Clear Filter</Button>
       </div>
 
     </Wrapper>

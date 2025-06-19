@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { useProductContext } from "./Productcontext";
 import reducer from "../reducer/filterReducer";
+import { type } from "@testing-library/user-event/dist/type";
 
 const FilterContext =createContext();
 
@@ -9,7 +10,7 @@ const intialState = {
     all_products:[],
     grid_view: true,
     sorting_value:"lowest",
-    filters:{text:"",}
+    filters:{text:"", category:"all",}
 }
 
 
@@ -42,10 +43,17 @@ const updateFilterValue =(event)=>{
 
 }
 
+const clearFilters =()=>{
+return dispatch({type:"CLEAR_FILTER" })
+
+}
+
+
+
     useEffect (()=>{
         dispatch({type:"FILTER_PRODUCTS"})
         dispatch({type:"SORTING_PRODUCTS"})
-      },[state.sorting_value,state.filters])
+      },[products,state.sorting_value,state.filters])
 
 
     useEffect (()=>{
@@ -54,7 +62,7 @@ const updateFilterValue =(event)=>{
 
 
     return(
-        <FilterContext.Provider value={{...state, setGridView,setListView,sorting,updateFilterValue}}>
+        <FilterContext.Provider value={{...state, setGridView,setListView,sorting,updateFilterValue,clearFilters}}>
             {children}
 
 
