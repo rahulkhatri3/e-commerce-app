@@ -66,7 +66,7 @@ switch (action.type) {
       case "UPDATE_FILTERS_VALUE":
       const {name,value} =action.payload;
       return{
-        ... state,
+        ...state,
         filters:{
           ...state.filters,[name]:value,
         }
@@ -76,13 +76,22 @@ switch (action.type) {
       case "FILTER_PRODUCTS":
         let {all_products}=state;
         let tempFileterProduct =[...all_products];
-        const {text} = state.filters;
+        const {text,category} = state.filters;
         if(text){
           tempFileterProduct=tempFileterProduct.filter((curElem)=>{
 
             return curElem.name.toLowerCase().includes(text)
           });
-        }
+    }
+    
+    if (category) {
+      tempFileterProduct = tempFileterProduct.filter((curElem) => {
+        return curElem.category === category;
+        
+
+      })
+
+    }
         return{
           ...state,
            filter_products:tempFileterProduct,

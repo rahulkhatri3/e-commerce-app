@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useFilterContext } from '../context/filter_Context'
 
 const FilterSection = () => {
-  const { filters: { text }, updateFilterValue, all_products } = useFilterContext();
+  const { filters: { text, category }, updateFilterValue, all_products } = useFilterContext();
 
   const getUniqeData = (data, property) => {
     
@@ -11,8 +11,8 @@ const FilterSection = () => {
   return curElem[property];
     })
 
-    newVal = ["ALL", ...new Set(newVal)];
-    console.log(newVal);
+   return( newVal = ["ALL", ...new Set(newVal)]);
+   
   }
   
 
@@ -26,6 +26,22 @@ const FilterSection = () => {
           />
           
           </form>
+      </div>
+
+      <div className="filter-category">
+        <h3>category</h3>
+        <div>
+          {categoryOnlyData.map((curElem,index) => {
+  
+            return (
+              <button key={index} type='button' name='category' value={curElem} onClick={updateFilterValue}>
+                {curElem}
+              </button>
+            )
+})}
+
+        </div>
+
       </div>
 
     </Wrapper>
@@ -49,7 +65,7 @@ input{
 padding: 0.6rem 1rem;
 }}
 
-.filter-category {Add commentMore actions
+.filter-category 
     div {
       display: flex;
       flex-direction: column;
@@ -72,7 +88,7 @@ padding: 0.6rem 1rem;
         color: ${({ theme }) => theme.colors.btn};
       }
     }
-  }
+  
 
   .filter-company--select {
     padding: 0.3rem 1.2rem;
