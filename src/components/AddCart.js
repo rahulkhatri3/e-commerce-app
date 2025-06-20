@@ -3,8 +3,11 @@ import CartAmountToggle from './CartAmountToggle';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import {Button} from "./Button"
+import { useCartContext } from '../context/cartContext';
 
 const AddCart = ({product}) => {
+
+  const {AddCart} =useCartContext();
     const { id,  stock } = product;
 
     const [amount, setAmount] = useState(1);
@@ -27,7 +30,7 @@ const AddCart = ({product}) => {
             setIncrease={setIncrease} />
             
         
-            <NavLink to="/Carts">
+            <NavLink to="/Carts" onClick={()=> AddCart(id,amount,product)}>
 
             <Button>Add to Cart</Button>
             </NavLink>
