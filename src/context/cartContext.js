@@ -1,12 +1,23 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import reducer from "../reducer/cartReducer"
 
 const CartContex = createContext();
+const getLocalCartData= ()=>{
+
+    let locatCartData = localStorage.getItem("RahulStore");
+    if (locatCartData ==[]){
+        return[];
+    }else{
+            return JSON.parse(locatCartData)
+        }
+    }
+
 
 const intialState ={
-
     cart:[],
-    total_amount: "",
+    cart:getLocalCartData(),
+    total_item: "",
+    total_price:"",
     shipping_fee:5000,
 
 }
@@ -17,7 +28,35 @@ const CartProvider = ({children})=>{
 dispatch({type:"ADD_TO_CART",payload:{id,amount,product}});
 
     }
-    return <CartContex.Provider value={{...state,AddCart}}>{children} </CartContex.Provider>
+
+    const removeItem = (id)=>{
+
+        dispatch({type:"REMOVE_ITEM",payload:id})
+    }
+
+    const clearCart = ()=>{
+        dispatch({type:"CLEAR_CART"})
+    }
+
+    const setDecrease=(id)=>{
+        dispatch({type:"SET_DECREMENT", payload:id});
+
+    }
+
+    
+    const setIncrease=(id)=>{
+        dispatch({type:"SET_IECREMENT", payload:id});
+
+    }
+useEffect (()=>{
+    dispatch ({type:"CART_TOTAL_ITEM"})
+    dispatch ({type:"CART_TOTAL_PRICE"})
+
+localStorage.setItem("RahulStore",JSON.stringify(state.cart))
+
+},[state.cart])
+
+    return <CartContex.Provider value={{...state,AddCart,removeItem,clearCart,setDecrease,setIncrease}}>{children} </CartContex.Provider>
 
 }
 
