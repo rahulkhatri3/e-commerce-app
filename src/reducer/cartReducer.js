@@ -1,5 +1,4 @@
-import React from 'react'
-import { PiKeyReturnThin } from 'react-icons/pi';
+
 
 const cartReducer = (state,action) => {
 
@@ -84,7 +83,7 @@ cart:[],
   }
 if(action.type ==="CART_TOTAL_ITEM"){
   let updatedItem =state.cart.reduce((intialVal,curElem)=>{
-let {amount} =curElem;
+let {amount} = curElem;
 intialVal = intialVal+amount;
 return intialVal ;
 
@@ -105,7 +104,7 @@ if(action.type ==="CART_TOTAL_PRICE"){
     return intialVal;
   },0)
   return{
-    ... state,
+    ...state,
     total_price,
   }
 
