@@ -17,7 +17,7 @@ const HeroSection = ({ myData}) => {
      trendy fashion, electronics, or home goods, our store is dedicated to delivering quality, affordability, and a great shopping experience.
       We believe in customer satisfaction, genuine products, and fast, friendly service.
       </p>
-    <NavLink to="./Products">
+    <NavLink to="../Products">
         <Button>Shop Now</Button>
     </NavLink>
 </div>
